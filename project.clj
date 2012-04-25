@@ -4,7 +4,8 @@
 
   :dependencies
   [[antler/caribou-core "0.5.0"]
-   [org.clojure/clojure "1.3.0"]]
+   [org.clojure/clojure "1.3.0"]
+   [antler/lein-caribou "1.2.8"]]
 
   :sub
    ["caribou-api"
