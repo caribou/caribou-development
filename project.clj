@@ -3,7 +3,8 @@
   "caribou: test site for development purposes"
 
   :dependencies
-  [[antler/caribou-core "0.5.0"]]
+  [[antler/caribou-core "0.5.0"]
+   [org.clojure/clojure "1.3.0"]]
 
   :sub
    ["caribou-api"
