@@ -7,8 +7,8 @@
    [org.clojure/clojure "1.3.0"]]
 
   :sub
-   ["caribou-api"
-    "caribou-frontend"
-    "caribou-admin"]
+   ["admin"
+    "api"
+    "site"]
 
   :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"])
