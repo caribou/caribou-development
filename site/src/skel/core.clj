@@ -1,9 +1,7 @@
 (ns skel.core
-  (:use
-         [caribou.debug])
-  (:require
-         [caribou.config :as caribou-config]
-         [caribou.app.handler :as caribou-handler]))
+  (:use [caribou.debug])
+  (:require [caribou.config :as caribou-config]
+            [caribou.app.handler :as caribou-handler]))
 
 (declare handler)
 
