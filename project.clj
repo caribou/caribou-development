@@ -3,8 +3,8 @@
   "caribou: test site for development purposes"
 
   :dependencies
-  [[antler/caribou-core "0.5.2"]
-   [org.clojure/clojure "1.3.0"]]
+   [[org.clojure/clojure "1.3.0"]
+    [antler/lein-caribou "1.3.3"]]
 
   :sub
    ["admin"

@@ -6,7 +6,7 @@
    :halo-enabled true
    :halo-prefix "/_halo"
    :halo-key    "replace-with-halo-key"
-   :halo-host   "http://localhost:33333"
+   :halo-host   "http://127.0.0.1:33333"
    :database {:classname    "org.postgresql.Driver"
               :subprotocol  "postgresql"
               :host         "localhost"
