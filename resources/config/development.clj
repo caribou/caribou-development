@@ -1,7 +1,7 @@
-{:database {:classname    "org.postgresql.Driver"
-            :subprotocol  "postgresql"
+{:database {:classname    "org.h2.Driver"
+            :subprotocol  "h2"
             :host         "localhost"
             :database     "caribou_development"
-            :user         "postgres"
+            :user         "h2"
             :password     ""} 
  :controller-ns  "skel.controllers"}
