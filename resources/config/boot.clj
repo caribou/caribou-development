@@ -13,11 +13,12 @@
               :database     "caribou_development"
               :user         "h2"
               :password     ""}
-   :template-dir   "site/resources/templates"
-   :public-dir     "site/resources/public"
-   :asset-dir      "app/"
-   :hooks-dir      "app/hooks"
-   :api-public     "api/resources/public"
+   :template-dir   "resources/templates"
+   :public-dir     "resources/public"
+   :asset-dir      "../app/"
+   :hooks-dir      "../app/hooks"
+   :migrations-dir "../app/migrations"
+   :api-public     "resources/public"
    :controller-ns  "skel.controllers"})
 
 (defn submerge

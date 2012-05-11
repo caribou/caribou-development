@@ -4,7 +4,7 @@
 
   :dependencies
    [[org.clojure/clojure "1.3.0"]
-    [antler/lein-caribou "1.3.5"]]
+    [antler/lein-caribou "1.4.0"]]
 
   :sub
    ["admin"
