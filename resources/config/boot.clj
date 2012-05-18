@@ -1,4 +1,5 @@
-(use '[caribou.config :only (read-config configure)])
+(use '[caribou.config :only (read-config configure environment)])
+(require ' [clojure.java.io :as io])
 
 (def default-config
   {:debug        true
@@ -13,8 +14,7 @@
               :database     "caribou_development"
               :user         "h2"
               :password     ""}
-   :template-dir   "resources/templates"
-   :public-dir     "resources/public"
+   :public-dir     "public"
    :asset-dir      "../app/"
    :hooks-dir      "../app/hooks"
    :migrations-dir "../app/migrations"
@@ -26,8 +26,13 @@
   (if (string? b) b (merge a b)))
 
 (defn get-config
+  "Loads the appropritate configuration file based on environment"
   []
-  (merge-with submerge default-config (read-config (clojure.java.io/resource "config/development.clj"))))
+  (let [config-file (format "config/%s.clj" (name (environment)))]
+    (println "Loading Caribou config " config-file)
+    (merge-with submerge default-config (read-config (io/resource config-file)))))
 
 ;; This call is required by Caribou
 (configure (get-config))
+
+
