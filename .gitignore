@@ -3,3 +3,7 @@
 /api/checkouts
 /admin/checkouts
 caribou_development.h2.db
+/admin/target
+/api/target
+/site/target
+/target
