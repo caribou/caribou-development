@@ -3,7 +3,7 @@
             :host         "localhost"
             :database     "caribou_staging"
             :user         "postgres"
-            :password     ""}
+            :password     "postgres"}
  :template-dir   "site/resources/templates" 
  :controller-ns  "skel.controllers"
  :public-dir     "site/resources/public"
