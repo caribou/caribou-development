@@ -1,6 +1,6 @@
 (defproject antler/caribou-development "0.1.0"
   :description
-  "caribou: test site for development purposes"
+  "caribou development: The prototypical caribou project"
 
   :dependencies
    [[org.clojure/clojure "1.3.0"]
