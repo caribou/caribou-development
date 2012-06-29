@@ -2,7 +2,9 @@
 (require ' [clojure.java.io :as io])
 
 (def default-config
-  {:debug        true
+  {:log-function #(-> % :message println)
+   :log-level    :warn
+   :debug        true
    :use-database true
    :halo-enabled true
    :halo-prefix "/_halo"
