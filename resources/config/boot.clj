@@ -2,7 +2,7 @@
 (require ' [clojure.java.io :as io])
 
 (def default-config
-  {:logging {:log-layout   (org.apache.log4j.PatternLayout. "\n%p %m (%x) %n\n")
+  {:logging {:log-pattern  "\n%p %m (%x) %n\n"
              :log-level    :debug
              :log-filter   (constantly true)}
    :debug        true
