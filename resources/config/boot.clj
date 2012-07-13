@@ -1,10 +1,9 @@
 (use '[caribou.config :only (read-config configure environment)])
 (require ' [clojure.java.io :as io])
-(import org.apache.log4j.PatternLayout)
 
 (def default-config
   {:logging {:log-layout   (org.apache.log4j.PatternLayout. "\n%p %m (%x) %n\n")
-             :log-level    :warn
+             :log-level    :debug
              :log-filter   (constantly true)}
    :debug        true
    :use-database true
