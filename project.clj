@@ -1,4 +1,4 @@
-(defproject antler/caribou-development "0.1.0"
+(defproject antler/caribou-development "0.1.1"
   :description
   "caribou: test site for development purposes"
 
