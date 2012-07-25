@@ -1,4 +1,5 @@
 {:logging {:log-pattern "%d %p %m%n"
+           :log-level :warn}
  :database {:classname    "org.postgresql.Driver"
             :subprotocol  "postgresql"
             :host         "localhost"

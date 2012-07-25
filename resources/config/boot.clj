@@ -3,6 +3,7 @@
 
 (def default-config
   {:logging {:log-pattern  "%p %d %m%n"
+             :log-level :debug
              :log-filter   (constantly true)}
    :debug        true
    :use-database true
