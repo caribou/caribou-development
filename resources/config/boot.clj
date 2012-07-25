@@ -2,8 +2,7 @@
 (require ' [clojure.java.io :as io])
 
 (def default-config
-  {:logging {:log-pattern  "\n%p %m (%x) %n\n"
-             :log-level    :debug
+  {:logging {:log-pattern  "%p %d %m%n"
              :log-filter   (constantly true)}
    :debug        true
    :use-database true

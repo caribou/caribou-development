@@ -1,4 +1,6 @@
-{:database {:classname    "org.h2.Driver"
+{:logging {:log-pattern  "%n%p %l %m%n"
+           :log-level    :debug}
+ :database {:classname    "org.h2.Driver"
             :subprotocol  "h2"
             :host         "localhost"
             :database     "caribou_development"

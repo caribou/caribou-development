@@ -1,4 +1,5 @@
-{:database {:classname    "org.postgresql.Driver"
+{:logging {:log-pattern "%d %p %m%n"
+ :database {:classname    "org.postgresql.Driver"
             :subprotocol  "postgresql"
             :host         "localhost"
             :database     "caribou_production"
