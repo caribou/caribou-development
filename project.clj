@@ -1,10 +1,10 @@
-(defproject antler/caribou-development "0.1.2"
+(defproject antler/caribou-development "0.1.3"
   :description
   "caribou: test site for development purposes"
 
   :dependencies
   [[org.clojure/clojure "1.3.0"]
-   [antler/lein-caribou "1.4.5"]]
+   [antler/lein-caribou "1.4.7"]]
 
   :sub
    ["admin"
