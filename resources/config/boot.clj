@@ -2,8 +2,9 @@
 (require ' [clojure.java.io :as io])
 
 (def default-config
-  {:log-function #(-> % :message println)
-   :log-level    :warn
+  {:logging {:log-pattern  "%p %d %m%n"
+             :log-level :debug
+             :log-filter   (constantly true)}
    :debug        true
    :use-database true
    :halo-enabled true
