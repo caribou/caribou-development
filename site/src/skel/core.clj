@@ -6,6 +6,7 @@
         [ring.middleware.cookies :only (wrap-cookies)]
         [ring.middleware.content-type :only (wrap-content-type)])
   (:require [compojure.handler :as compojure]
+            [swank.swank :as swank]
             [caribou.config :as config]
             [caribou.db :as db]
             [caribou.model :as model]
@@ -40,4 +41,6 @@
         (compojure/api)
         (wrap-content-type)
         (wrap-session)
-        (wrap-cookies))))
+        (wrap-cookies)))
+
+  (swank/start-server :host "127.0.0.1" :port 4010))
