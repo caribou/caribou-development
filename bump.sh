@@ -104,7 +104,7 @@ package_re()
     SPACES='[ \t]\+"'
     NUM='[0-9]\+'
     SUF='".*$'
-    echo "\(${PRE}\)${SPACES}\(${NUM}.${NUM}.\)\(${NUM}\)\(${SUF}\)"
+    echo "\(${PRE}\)${SPACES}\(${NUM}\.${NUM}\.\)\(${NUM}\)\(${SUF}\)"
 }
 
 package_minor()
