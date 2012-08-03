@@ -4,6 +4,8 @@
 # all projects which depend on that project, and publish
 PACKAGE_NAME=$1
 
+NEUTER=echo
+
 case $PACKAGE_NAME in
     core)
 	UPDATE_CORE=true
@@ -56,11 +58,11 @@ esac
 pull()
 {
     PPATH=$1
-    set -x
-    cd ${PPATH} &&
-    git checkout master &&
-    git pull origin master &&
-    set +x
+    ${NEUTER} set -x
+    ${NEUTER} cd ${PPATH} &&
+    ${NEUTER} git checkout master &&
+    ${NEUTER} git pull origin master &&
+    ${NEUTER} set +x
 }
 
 update()
@@ -77,13 +79,13 @@ update()
 publish()
 {
     PPATH=$1
-    set -x
-    cd ${PPATH} &&
-    lein compile &&
-    lein push &&
-    git commit -a -m '"version bump"' &&
-    git push
-    set +x
+    ${NEUTER} set -x
+    ${NEUTER} cd ${PPATH} &&
+    ${NEUTER} lein compile &&
+    ${NEUTER} lein push &&
+    ${NEUTER} git commit -a -m '"version bump"' &&
+    ${NEUTER} git push
+    ${NEUTER} set +x
 }
 
 commit()
@@ -97,14 +99,18 @@ commit()
     fi
 }
 
-package_re()
-{
-    PACKAGE=$1
-    PRE=".*${PACKAGE}"
-    SPACES='[ \t]\+"'
-    NUM='[0-9]\+'
-    SUF='".*$'
-    echo "\(${PRE}\)${SPACES}\(${NUM}\.${NUM}\.\)\(${NUM}\)\(${SUF}\)"
+# this regex works with bsd sed
+package_re() {
+  PACKAGE=$1
+  PRE=".*${PACKAGE}"
+# regex fails with bsd sed
+#     SPACES='[ \t]\+"'
+  SPACES='[ \t][ \t]*"'
+# regex fails with bsd sed
+#     NUM='[0-9]\+'
+  NUM='[0-9][0-9]*'
+  SUF='".*$'
+  echo "\(${PRE}\)${SPACES}\(${NUM}\.${NUM}\.\)\(${NUM}\)\(${SUF}\)"
 }
 
 package_minor()
@@ -124,7 +130,7 @@ bump()
     BUMPED=$3
     # build the regular expression
     echo in ${PPATH} ${PACKAGE}, upping to ${BUMPED}
-    sed -e "s,${RE},\1 \"\2${BUMPED}\4," $FILE > $FILE
+    sed -e "s,${RE},\1 \"\2${BUMPED}\4," $FILE # > $FILE
 }
 
 if $UPDATE_CORE ; then update ../caribou-core; fi
