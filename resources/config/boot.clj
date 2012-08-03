@@ -2,7 +2,7 @@
 (require ' [clojure.java.io :as io])
 
 (def default-config
-  {:logging {:log-pattern  "%-5p %u [%t]: %m %F %L%n"
+  {:logging {:log-pattern  "%p %d %m%n"
              :log-level :debug
              :log-filter   (constantly true)}
    :debug        true

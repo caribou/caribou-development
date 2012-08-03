@@ -1,4 +1,4 @@
-{:logging {:log-pattern  "%-5p %u [%t]: %m %F %L%n"
+{:logging {:log-pattern  "%n%p %l %m%n"
            :log-level    :debug}
  :database {:classname    "org.h2.Driver"
             :subprotocol  "h2"
