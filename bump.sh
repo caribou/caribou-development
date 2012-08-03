@@ -124,7 +124,7 @@ bump()
     BUMPED=$3
     # build the regular expression
     echo in ${PPATH} ${PACKAGE}, upping to ${BUMPED}
-    sed -i'' -e "s,${RE},\1 \"\2${BUMPED}\4," $FILE
+    sed -e "s,${RE},\1 \"\2${BUMPED}\4," $FILE > $FILE
 }
 
 if $UPDATE_CORE ; then update ../caribou-core; fi
