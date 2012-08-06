@@ -56,11 +56,12 @@ esac
 pull()
 {
     PPATH=$1
-    echo set -x
-    echo cd ${PPATH} &&
-    echo git checkout master &&
-    echo git pull origin master &&
-    echo set +x
+# change the rest of the lines in this function to echo / do
+    set -x
+    cd ${PPATH} &&
+    git checkout master &&
+    git pull origin master &&
+    set +x
 }
 
 update()
@@ -77,13 +78,14 @@ update()
 publish()
 {
     PPATH=$1
-    echo set -x
-    echo cd ${PPATH} &&
-    echo lein compile &&
-    echo lein push &&
-    echo git commit -a -m '"version bump"' &&
-    echo git push
-    echo set +x
+# change the rest of the lines in this function to echo / do
+    set -x
+    cd ${PPATH} &&
+    lein compile &&
+    lein push &&
+    git commit -a -m '"version bump"' &&
+    git push
+    set +x
 }
 
 commit()
@@ -128,7 +130,8 @@ bump()
     BUMPED=$3
     # build the regular expression
     echo in ${PPATH} ${PACKAGE}, upping to ${BUMPED}
-    sed -e "s,${RE},\1 \"\2${BUMPED}\4," $FILE # > $FILE
+ # change the rest of the lines in this function to echo / do
+    sed -e "s,${RE},\1 \"\2${BUMPED}\4," $FILE > $FILE
 }
 
 if $UPDATE_CORE ; then update ../caribou-core; fi
@@ -141,6 +144,11 @@ if $UPDATE_DEVELOPMENT ; then update ../caribou-development; fi
 if $UPDATE_CORE ;
 then
     VER=$(package_minor antler/caribou-core ../caribou-core/project.clj)
+    if [ ${VER} = "" ] ;
+    then
+	echo ERROR empty version for antler/caribou-core;
+	exit 4
+    fi
     BUMPED=$(expr ${VER} + 1)
     bump antler/caribou-core ../caribou-core ${BUMPED}
     bump antler/caribou-core ../caribou-frontend ${BUMPED}
@@ -151,6 +159,11 @@ fi
 if $UPDATE_FRONTEND ;
 then
     VER=$(package_minor antler/caribou-frontend ../caribou-frontend/project.clj)
+    if [ ${VER} = "" ] ;
+    then
+	echo ERROR empty version for antler/caribou-frontend;
+	exit 4
+    fi
     BUMPED=$(expr ${VER} + 1)
     bump antler/caribou-frontend ../caribou-frontend ${BUMPED}
     bump antler/caribou-frontend ../caribou-development/site ${BUMPED}
@@ -159,6 +172,11 @@ fi
 if $UPDATE_API ;
 then
     VER=$(package_minor antler/caribou-api ../caribou-api/project.clj)
+    if [ ${VER} = "" ] ;
+    then
+	echo ERROR empty version for antler/caribou-api;
+	exit 4
+    fi
     BUMPED=$(expr ${VER} + 1)
     bump antler/caribou-api ../caribou-api ${BUMPED}
     bump antler/caribou-api ../caribou-development/api ${BUMPED}
@@ -167,6 +185,11 @@ fi
 if $UPDATE_ADMIN ;
 then
     VER=$(package_minor antler/caribou-admin ../caribou-admin/project.clj)
+    if [ ${VER} = "" ] ;
+    then
+	echo ERROR empty version for antler/caribou-admin;
+	exit 4
+    fi
     BUMPED=$(expr ${VER} + 1)
     bump antler/caribou-admin ../caribou-admin ${BUMPED}
     bump antler/caribou-admin ../caribou-development/api ${BUMPED}
@@ -175,6 +198,11 @@ fi
 if $UPDATE_LEIN ;
 then
     VER=$(package_minor antler/lein-caribou ../lein-caribou/project.clj)
+    if [ ${VER} = "" ] ;
+    then
+	echo ERROR empty version for antler/lein-caribou;
+	exit 4
+    fi
     BUMPED=$(expr ${VER} + 1)
     bump antler/lein-caribou ../lein-caribou ${BUMPED}
     bump antler/lein-caribou ../caribou-development ${BUMPED}
