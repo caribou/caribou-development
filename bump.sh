@@ -4,8 +4,6 @@
 # all projects which depend on that project, and publish
 PACKAGE_NAME=$1
 
-NEUTER=echo
-
 case $PACKAGE_NAME in
     core)
 	UPDATE_CORE=true
@@ -58,11 +56,11 @@ esac
 pull()
 {
     PPATH=$1
-    ${NEUTER} set -x
-    ${NEUTER} cd ${PPATH} &&
-    ${NEUTER} git checkout master &&
-    ${NEUTER} git pull origin master &&
-    ${NEUTER} set +x
+    echo set -x
+    echo cd ${PPATH} &&
+    echo git checkout master &&
+    echo git pull origin master &&
+    echo set +x
 }
 
 update()
@@ -79,13 +77,13 @@ update()
 publish()
 {
     PPATH=$1
-    ${NEUTER} set -x
-    ${NEUTER} cd ${PPATH} &&
-    ${NEUTER} lein compile &&
-    ${NEUTER} lein push &&
-    ${NEUTER} git commit -a -m '"version bump"' &&
-    ${NEUTER} git push
-    ${NEUTER} set +x
+    echo set -x
+    echo cd ${PPATH} &&
+    echo lein compile &&
+    echo lein push &&
+    echo git commit -a -m '"version bump"' &&
+    echo git push
+    echo set +x
 }
 
 commit()
