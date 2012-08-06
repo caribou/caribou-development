@@ -56,6 +56,7 @@ esac
 pull()
 {
     PPATH=$1
+# change the rest of the lines in this function to echo / do
     echo set -x
     echo cd ${PPATH} &&
     echo git checkout master &&
@@ -77,6 +78,7 @@ update()
 publish()
 {
     PPATH=$1
+# change the rest of the lines in this function to echo / do
     echo set -x
     echo cd ${PPATH} &&
     echo lein compile &&
@@ -128,6 +130,7 @@ bump()
     BUMPED=$3
     # build the regular expression
     echo in ${PPATH} ${PACKAGE}, upping to ${BUMPED}
+ # change the rest of the lines in this function to echo / do
     sed -e "s,${RE},\1 \"\2${BUMPED}\4," $FILE # > $FILE
 }
 
