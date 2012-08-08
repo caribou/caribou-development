@@ -10,7 +10,7 @@
    :halo-enabled true
    :halo-prefix "/_halo"
    :halo-key    "replace-with-halo-key"
-   :halo-host   "http://127.0.0.1:33333"
+   :halo-hosts  ["http://127.0.0.1:33333"]
    :database {:classname    "org.h2.Driver"
               :subprotocol  "h2"
               :host         "localhost"
