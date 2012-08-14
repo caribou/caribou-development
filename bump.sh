@@ -81,10 +81,10 @@ publish()
 # change the rest of the lines in this function to echo / do
     set -x
     cd ${PPATH} &&
-    echo lein compile &&
-    echo lein push &&
-    echo git commit -a -m '"version bump"' &&
-    echo git push
+    lein compile &&
+    lein push &&
+    git commit -a -m '"version bump"' &&
+    git push
     set +x
 }
 
@@ -131,7 +131,16 @@ bump()
     # build the regular expression
     echo in ${PPATH} ${PACKAGE}, upping to ${BUMPED}
  # change the rest of the lines in this function to echo / do
-    sed -e "s,${RE},\1 \"\2${BUMPED}\4," $FILE > $FILE
+    NAME=$(mktemp /tmp/bump.XXXXXXX)
+    sed -e "s,${RE},\1 \"\2${BUMPED}\4," < ${FILE} > ${NAME}
+    if test -s ${NAME}
+    then
+	mv ${NAME} ${FILE}
+    else
+	echo ERROR ${FILE} generated empty new version
+	rm ${NAME}
+	exit 5
+    fi
 }
 
 if $UPDATE_CORE ; then update ../caribou-core; fi
