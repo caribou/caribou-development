@@ -81,10 +81,10 @@ publish()
 # change the rest of the lines in this function to echo / do
     set -x
     cd ${PPATH} &&
-    lein compile &&
-    lein push &&
-    git commit -a -m '"version bump"' &&
-    git push
+    echo lein compile &&
+    echo lein push &&
+    echo git commit -a -m '"version bump"' &&
+    echo git push
     set +x
 }
 
@@ -144,7 +144,7 @@ if $UPDATE_DEVELOPMENT ; then update ../caribou-development; fi
 if $UPDATE_CORE ;
 then
     VER=$(package_minor antler/caribou-core ../caribou-core/project.clj)
-    if [ ${VER} = "" ] ;
+    if [ "${VER}" = "" ] ;
     then
 	echo ERROR empty version for antler/caribou-core;
 	exit 4
@@ -159,7 +159,7 @@ fi
 if $UPDATE_FRONTEND ;
 then
     VER=$(package_minor antler/caribou-frontend ../caribou-frontend/project.clj)
-    if [ ${VER} = "" ] ;
+    if [ "${VER}" = "" ] ;
     then
 	echo ERROR empty version for antler/caribou-frontend;
 	exit 4
@@ -172,7 +172,7 @@ fi
 if $UPDATE_API ;
 then
     VER=$(package_minor antler/caribou-api ../caribou-api/project.clj)
-    if [ ${VER} = "" ] ;
+    if [ "${VER}" = "" ] ;
     then
 	echo ERROR empty version for antler/caribou-api;
 	exit 4
@@ -185,7 +185,7 @@ fi
 if $UPDATE_ADMIN ;
 then
     VER=$(package_minor antler/caribou-admin ../caribou-admin/project.clj)
-    if [ ${VER} = "" ] ;
+    if [ "${VER}" = "" ] ;
     then
 	echo ERROR empty version for antler/caribou-admin;
 	exit 4
@@ -198,7 +198,7 @@ fi
 if $UPDATE_LEIN ;
 then
     VER=$(package_minor antler/lein-caribou ../lein-caribou/project.clj)
-    if [ ${VER} = "" ] ;
+    if [ "${VER}" = "" ] ;
     then
 	echo ERROR empty version for antler/lein-caribou;
 	exit 4
