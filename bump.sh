@@ -84,6 +84,7 @@ publish()
     lein compile &&
 # this is automated
 #    lein push &&
+    lein install &&
     git commit -a -m '"version bump"' &&
     git push
     set +x
