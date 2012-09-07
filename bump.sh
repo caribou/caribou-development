@@ -131,7 +131,9 @@ bump()
     # build the regular expression
     echo in ${PPATH} ${PACKAGE}, upping to ${BUMPED}
  # change the rest of the lines in this function to echo / do
-    sed -e "s,${RE},\1 \"\2${BUMPED}\4," $FILE > $FILE
+    TMP=/tmp/$(mktemp project.clj-XXXX)
+    sed -e "s,${RE},\1 \"\2${BUMPED}\4," $FILE > $TMP
+    mv $TMP $FILE
 }
 
 if $UPDATE_CORE ; then update ../caribou-core; fi
