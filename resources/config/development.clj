@@ -1,9 +1,9 @@
 {:logging {:log-pattern  "%p %l %m%n"
            :log-level    :debug}
- :database {:classname    "org.h2.Driver"
-            :subprotocol  "h2"
-            :host         "localhost"
+ :database {:classname    "org.postgresql.Driver" ;; "com.mysql.jdbc.Driver" ;; "org.h2.Driver"
+            :subprotocol  "postgresql" ;; "mysql" ;; "h2"
+            :host         "localhost" ;; "127.0.0.1:3306" ;; "localhost"
             :database     "caribou_development"
-            :user         "h2"
-            :password     ""} 
+            :user         "postgres" ;; "root" ;; "h2"
+            :password     "" } ;; "1nt3rfac3"} ;; ""
  :controller-ns  "skel.controllers"}

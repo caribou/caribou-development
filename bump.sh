@@ -82,7 +82,9 @@ publish()
     set -x
     cd ${PPATH} &&
     lein compile &&
-    lein push &&
+# this is automated
+#    lein push &&
+    lein install &&
     git commit -a -m '"version bump"' &&
     git push
     set +x
@@ -130,7 +132,7 @@ bump()
     BUMPED=$3
     # build the regular expression
     echo in ${PPATH} ${PACKAGE}, upping to ${BUMPED}
- # change the rest of the lines in this function to echo / do
+  # change the rest of the lines in this function to echo / do
     NAME=$(mktemp /tmp/bump.XXXXXXX)
     sed -e "s,${RE},\1 \"\2${BUMPED}\4," < ${FILE} > ${NAME}
     if test -s ${NAME}
