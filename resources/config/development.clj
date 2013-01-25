@@ -1,5 +1,7 @@
-{:logging {:log-pattern  "%p %l %m%n"
-           :log-level    :debug}
+{:logging {:loggers [{:type :stdout :level :debug}
+                     ;; {:type :remote :host "beast.local" :level :debug}
+                     ;; {:type :file :file "caribou-logging.out" :level :debug}
+                     ]}
  :database {:classname    "org.postgresql.Driver" ;; "com.mysql.jdbc.Driver" ;; "org.h2.Driver"
             :subprotocol  "postgresql" ;; "mysql" ;; "h2"
             :host         "localhost" ;; "127.0.0.1:3306" ;; "localhost"

@@ -1,5 +1,7 @@
-{:logging {:log-pattern "%d %p %m%n"
-           :log-level :warn}
+{:logging {:loggers [{:type :stdout :level :warn}
+                     ;; {:type :remote :host "beast.local" :level :debug}
+                     ;; {:type :file :file "caribou-logging.out" :level :warn}
+                     ]}
  :database {:classname    "org.postgresql.Driver"
             :subprotocol  "postgresql"
             :host         "localhost"

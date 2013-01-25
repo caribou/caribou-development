@@ -2,9 +2,10 @@
 (require ' [clojure.java.io :as io])
 
 (def default-config
-  {:logging {:log-pattern  "%p %d %m%n"
-             :log-level :debug
-             :log-filter   (constantly true)}
+  {:logging {:loggers [{:type :stdout :level :debug}
+                       ;; {:type :remote :host "beast.local" :level :debug}
+                       ;; {:type :file :file "caribou-logging.out" :level :warn}
+                       ]}
    :debug        true
    :use-database true
    :halo-enabled true
