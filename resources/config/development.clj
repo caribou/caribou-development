@@ -2,10 +2,10 @@
                      ;; {:type :remote :host "beast.local" :level :debug}
                      ;; {:type :file :file "caribou-logging.out" :level :debug}
                      ]}
- :database {:classname    "org.postgresql.Driver" ;; "com.mysql.jdbc.Driver" ;; "org.h2.Driver"
-            :subprotocol  "postgresql" ;; "mysql" ;; "h2"
-            :host         "localhost" ;; "127.0.0.1:3306" ;; "localhost"
+ :database {:classname    "org.h2.Driver"
+            :subprotocol  "h2"
+            :host         "localhost"
             :database     "caribou_development"
-            :user         "postgres" ;; "root" ;; "h2"
-            :password     "" } ;; "1nt3rfac3"} ;; ""
+            :user         "h2"
+            :password     ""}
  :controller-ns  "skel.controllers"}
