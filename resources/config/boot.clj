@@ -20,7 +20,7 @@
               :password     ""}
    :public-dir     "public"
    :asset-dir      "../app/"
-   :hooks-dir      "../app/hooks"
+   :hooks-ns      "skel.hooks"
    :migrations-dir "../app/migrations"
    :api-public     "public"
    :controller-ns  "skel.controllers"})
