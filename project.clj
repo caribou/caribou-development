@@ -4,9 +4,9 @@
 
   :dependencies
   [[org.clojure/clojure "1.3.0"]
-   [antler/caribou-core "0.7.25"]]
+   [antler/caribou-core "0.7.26"]]
 
-  :migration-namespace "$project$.migrations"
+  :migration-namespace "skel.migrations"
 
   :sub
    ["admin"
