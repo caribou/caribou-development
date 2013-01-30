@@ -1,3 +1,3 @@
 (ns $project$.migrations.order)
 
-(def order [])
+(def order [ "default" ])

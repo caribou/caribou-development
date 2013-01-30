@@ -1,7 +1,7 @@
 (defproject caribou-development-api "0.1.0"
   :description "The api ring handler for caribou"
   :dependencies [[org.clojure/clojure "1.3.0"]
-                 [antler/caribou-api "0.7.21"]]
+                 [antler/caribou-api "0.7.22"]]
   :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"]
   :source-paths ["src" "../src"]
   :resource-paths ["resources/" "../resources/"]            
