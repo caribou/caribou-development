@@ -1,4 +1,5 @@
-(ns skel.hooks.model)
+(ns skel.hooks.model
+    (:require [caribou.model :as model]))
 
 ;; a model hook recieves a map as its sole arg, that map contains keys that
 ;; are partially specific to its lifecycle position
