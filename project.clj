@@ -1,10 +1,10 @@
-(defproject antler/caribou-development "0.1.12"
+(defproject antler/caribou-development "0.9.0"
   :description
   "caribou development: The prototypical caribou project"
 
   :dependencies
-  [[org.clojure/clojure "1.3.0"]
-   [antler/caribou-core "0.7.26"]]
+  [[org.clojure/clojure "1.4.0"]
+   [antler/caribou-core "0.9.0"]]
 
   :migration-namespace "skel.migrations"
 
