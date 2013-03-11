@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [antler/caribou-admin "0.9.1"]]
   :resource-paths ["resources/" "../resources/"]
+  :source-paths ["src" "../src"]
   :ring {:handler caribou.admin.core/app
          :servlet-name "caribou-development-admin"
          :join? false
