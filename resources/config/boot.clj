@@ -20,10 +20,11 @@
               :password     ""}
    :public-dir     "public"
    :asset-dir      "../app/"
-   :hooks-ns      "skel.hooks"
+   :hooks-ns       "skel.hooks"
+   :fields-ns      "skel.fields"
    :migrations-dir "../app/migrations"
    :api-public     "public"
-   :controller-ns  "skel.controllers"})
+   :controllers  {:ns "skel.controllers"}})
 
 (defn submerge
   [a b]
