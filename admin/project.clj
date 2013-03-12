@@ -4,7 +4,7 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.4.0"]
-                 [antler/caribou-admin "0.9.2"]]
+                 [antler/caribou-admin "0.9.3"]]
   :source-paths ["src" "../src"]
   :resource-paths ["resources/" "../resources/"]            
   :ring {:handler caribou.admin.core/app
