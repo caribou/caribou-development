@@ -2,5 +2,5 @@
   (:use caribou.app.controller))
 
 (defn home
-  [params]
-  (render params))
+  [request]
+  (render request))
