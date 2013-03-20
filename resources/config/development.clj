@@ -8,4 +8,5 @@
             :database     "caribou_development"
             :user         "h2"
             :password     ""}
- :controller-ns  "skel.controllers"}
+ :reload-templates :always
+ :controllers {:ns "skel.controllers" :reload :always}}
