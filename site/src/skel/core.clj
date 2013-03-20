@@ -16,9 +16,19 @@
             [caribou.app.halo :as halo]
             [caribou.app.middleware :as middleware]
             [caribou.app.request :as request]
+            [caribou.admin.routes :as admin-routes]
+            [caribou.admin.core :as admin-core]
             [caribou.app.handler :as handler]))
 
 (declare handler)
+
+(defn reload-pages
+  []
+  (pages/create-page-routes
+   (model/arrange-tree
+    (model/db
+     #(model/gather :page))))
+  (pages/add-page-routes admin-routes/admin-routes 'caribou.admin.controllers "/_admin" admin-core/admin-wrapper))
 
 (defn init
   []
@@ -27,7 +37,9 @@
   (i18n/init)
   (template/init)
   (pages/create-page-routes)
-  (halo/init {:halo-reset handler/reset-handler})
+  (halo/init
+   {:reload-pages reload-pages
+    :halo-reset handler/reset-handler})
 
   (def handler
     (-> (handler/gen-handler)

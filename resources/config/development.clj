@@ -5,8 +5,10 @@
  :database {:classname    "org.h2.Driver"
             :subprotocol  "h2"
             :host         "localhost"
-            :database     "caribou_development"
+            ;; HACK HACK HACK!!!
+            :subname		  "file:/tmp/caribou_development"
             :user         "h2"
             :password     ""}
  :reload-templates :always
  :controllers {:ns "skel.controllers" :reload :always}}
+
