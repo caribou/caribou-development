@@ -2,7 +2,7 @@
   :description "The page routing ring handler for caribou"
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [antler/caribou-frontend "0.9.17"]
-                 [antler/caribou-admin "0.9.9"]
+                 [antler/caribou-admin "0.9.10"]
                  [swank-clojure "1.4.2"]]
   :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"]
   :source-paths ["src" "../src"]
