@@ -16,11 +16,18 @@
             [caribou.app.halo :as halo]
             [caribou.app.middleware :as middleware]
             [caribou.app.request :as request]
+            [caribou.app.helpers :as helpers]
             [caribou.admin.routes :as admin-routes]
             [caribou.admin.core :as admin-core]
             [caribou.app.handler :as handler]))
 
 (declare handler)
+
+(defn provide-helpers
+  [handler]
+  (fn [request]
+    (let [request (merge request helpers/helpers)]
+      (handler request))))
 
 (defn reload-pages
   []
@@ -43,6 +50,7 @@
 
   (def handler
     (-> (handler/gen-handler)
+        (provide-helpers)
         (wrap-reload)
         (handler/use-public-wrapper (@config/app :public-dir))
         (middleware/wrap-servlet-path-info)

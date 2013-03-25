@@ -11,4 +11,5 @@
             :password     ""}
  :reload-templates :always
  :controllers {:ns "skel.controllers" :reload :always}}
+ :cache-templates :never}
 
