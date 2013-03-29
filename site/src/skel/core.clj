@@ -27,7 +27,7 @@
   (pages/create-page-routes
    (model/arrange-tree
     (model/db
-     #(model/gather :page))))
+     #(model/gather :page {:include {:siphons {}}}))))
   (pages/add-page-routes admin-routes/admin-routes 'caribou.admin.controllers "/_admin" admin-core/admin-wrapper))
 
 (defn init
@@ -36,13 +36,13 @@
   (model/init)
   (i18n/init)
   (template/init)
-  (pages/create-page-routes)
+  (reload-pages)
   (halo/init
    {:reload-pages reload-pages
     :halo-reset handler/reset-handler})
 
   (def handler
-    (-> (handler/gen-handler)
+    (-> (handler/handler)
         (wrap-reload)
         (handler/use-public-wrapper (@config/app :public-dir))
         (middleware/wrap-servlet-path-info)

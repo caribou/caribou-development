@@ -4,7 +4,7 @@
 
   :dependencies
   [[org.clojure/clojure "1.4.0"]
-   [antler/caribou-core "0.9.7"]]
+   [antler/caribou-core "0.9.10"]]
 
   :migration-namespace "skel.migrations"
 
