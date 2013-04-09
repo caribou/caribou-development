@@ -4,7 +4,13 @@
 (defn migrate
   []
   (model/invoke-models)
-  (model/create :page {:name "Home" :path "" :controller "home" :action "home" :template "home.html"}))
+  (let [site (model/create :site {:name "Site" :description "Frontend"})]
+    (model/create :page {:name "Home"
+                         :path ""
+                         :controller "home"
+                         :action "home"
+                         :template "home.html"
+                         :site_id (:id site)})))
 
 (defn rollback
   [] 
