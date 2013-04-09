@@ -9,4 +9,6 @@
             :subname		  "file:/tmp/caribou_development"
             :user         "h2"
             :password     ""}
- :controller {:namespace  "skel.controllers"}}
+ :reload-templates :always
+ :controllers {:ns "skel.controllers" :reload :always}}
+
