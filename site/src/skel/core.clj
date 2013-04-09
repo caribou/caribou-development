@@ -1,15 +1,18 @@
 (ns skel.core
   (:use [ring.middleware.json-params :only (wrap-json-params)]
         [ring.middleware.multipart-params :only (wrap-multipart-params)]
+        [ring.middleware.params :only (wrap-params)]
+        [ring.middleware.nested-params :only (wrap-nested-params)]
+        [ring.middleware.keyword-params :only (wrap-keyword-params)]
         [ring.middleware.reload :only (wrap-reload)]
         [ring.middleware.session :only (wrap-session)]
         [ring.middleware.cookies :only (wrap-cookies)]
         [ring.middleware.content-type :only (wrap-content-type)])
-  (:require [compojure.handler :as compojure]
-            [swank.swank :as swank]
+  (:require [swank.swank :as swank]
             [caribou.config :as config]
             [caribou.db :as db]
             [caribou.model :as model]
+            [caribou.logger :as log]
             [caribou.app.i18n :as i18n]
             [caribou.app.pages :as pages]
             [caribou.app.template :as template]
@@ -34,6 +37,14 @@
    "/_admin"
    admin-core/admin-wrapper))
 
+(defn wrap-stats
+  [handler]
+  (fn [request]
+    (log/debug request :REQUEST)
+    (let [response (handler request)]
+      (log/debug response :RESPONSE)
+      response)))
+
 (defn init
   []
   (config/init)
@@ -47,14 +58,17 @@
 
   (def handler
     (-> (handler/handler)
+        (wrap-stats)
         (wrap-reload)
         (handler/use-public-wrapper (@config/app :public-dir))
         (middleware/wrap-servlet-path-info)
         (request/wrap-request-map)
         (wrap-json-params)
         (wrap-multipart-params)
+        (wrap-keyword-params)
+        (wrap-nested-params)
+        (wrap-params)
         (db/wrap-db @config/db)
-        (compojure/api)
         (wrap-content-type)
         (wrap-session)
         (wrap-cookies)))
