@@ -3,6 +3,8 @@
         [ring.middleware.multipart-params :only (wrap-multipart-params)]
         [ring.middleware.params :only (wrap-params)]
         [ring.middleware.file :only (wrap-file)]
+        [ring.middleware.head :only (wrap-head)]
+        [ring.middleware.file-info :only (wrap-file-info)]
         [ring.middleware.resource :only (wrap-resource)]
         [ring.middleware.nested-params :only (wrap-nested-params)]
         [ring.middleware.keyword-params :only (wrap-keyword-params)]
@@ -56,8 +58,11 @@
         (wrap-reload)
         (wrap-file (@config/app :asset-dir))
         (wrap-resource (@config/app :public-dir))
+        (wrap-file-info)
+        (wrap-head)
         (lichen/wrap-lichen (@config/app :asset-dir))
         (middleware/wrap-servlet-path-info)
+        (middleware/wrap-xhr-request)
         (request/wrap-request-map)
         (wrap-json-params)
         (wrap-multipart-params)
