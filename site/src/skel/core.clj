@@ -9,6 +9,7 @@
         [ring.middleware.cookies :only (wrap-cookies)]
         [ring.middleware.content-type :only (wrap-content-type)])
   (:require [swank.swank :as swank]
+            [lichen.core :as lichen]
             [caribou.config :as config]
             [caribou.db :as db]
             [caribou.model :as model]
@@ -60,6 +61,7 @@
     (-> (handler/handler)
         (wrap-stats)
         (wrap-reload)
+        (lichen/wrap-lichen (@config/app :asset-dir))
         (handler/use-public-wrapper (@config/app :public-dir))
         (middleware/wrap-servlet-path-info)
         (request/wrap-request-map)

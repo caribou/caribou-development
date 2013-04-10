@@ -10,5 +10,5 @@
             :user         "h2"
             :password     ""}
  :reload-templates :always
- :controllers {:ns "skel.controllers" :reload :always}}
+ :controller {:namespace "skel.controllers" :reload :always}}
 
