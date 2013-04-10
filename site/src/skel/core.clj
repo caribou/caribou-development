@@ -10,6 +10,7 @@
         [ring.middleware.keyword-params :only (wrap-keyword-params)]
         [ring.middleware.reload :only (wrap-reload)]
         [ring.middleware.session :only (wrap-session)]
+        [ring.middleware.session.cookie :only (cookie-store)]
         [ring.middleware.cookies :only (wrap-cookies)]
         [ring.middleware.content-type :only (wrap-content-type)])
   (:require [swank.swank :as swank]
