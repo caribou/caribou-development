@@ -2,6 +2,8 @@
   (:use [ring.middleware.json-params :only (wrap-json-params)]
         [ring.middleware.multipart-params :only (wrap-multipart-params)]
         [ring.middleware.params :only (wrap-params)]
+        [ring.middleware.file :only (wrap-file)]
+        [ring.middleware.resource :only (wrap-resource)]
         [ring.middleware.nested-params :only (wrap-nested-params)]
         [ring.middleware.keyword-params :only (wrap-keyword-params)]
         [ring.middleware.reload :only (wrap-reload)]
@@ -38,14 +40,6 @@
    "/_admin"
    admin-core/admin-wrapper))
 
-(defn wrap-stats
-  [handler]
-  (fn [request]
-    (log/debug request :REQUEST)
-    (let [response (handler request)]
-      (log/debug response :RESPONSE)
-      response)))
-
 (defn init
   []
   (config/init)
@@ -59,10 +53,10 @@
 
   (def handler
     (-> (handler/handler)
-        (wrap-stats)
         (wrap-reload)
+        (wrap-file (@config/app :asset-dir))
+        (wrap-resource (@config/app :public-dir))
         (lichen/wrap-lichen (@config/app :asset-dir))
-        (handler/use-public-wrapper (@config/app :public-dir))
         (middleware/wrap-servlet-path-info)
         (request/wrap-request-map)
         (wrap-json-params)
