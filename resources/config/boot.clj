@@ -19,10 +19,10 @@
               :user         "h2"
               :password     ""}
    :public-dir     "public"
-   :asset-dir      "../app/"
+   :asset-dir      "app/"
    :hooks-ns       "skel.hooks"
    :fields-ns      "skel.fields"
-   :migrations-dir "../app/migrations"
+   :migrations-dir "app/migrations"
    :api-public     "public"
    :controllers  {:ns "skel.controllers"}})
 

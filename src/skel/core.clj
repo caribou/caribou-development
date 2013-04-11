@@ -27,6 +27,8 @@
             [caribou.app.request :as request]
             [caribou.admin.routes :as admin-routes]
             [caribou.admin.core :as admin-core]
+            [caribou.api.routes :as api-routes]
+            [caribou.api.core :as api-core]
             [caribou.app.handler :as handler]))
 
 (declare handler)
@@ -41,7 +43,12 @@
    admin-routes/admin-routes
    'caribou.admin.controllers
    "/_admin"
-   admin-core/admin-wrapper))
+   admin-core/admin-wrapper)
+  (pages/add-page-routes
+   api-routes/api-routes
+   'caribou.api.controllers
+   "/_api"
+   api-core/api-wrapper))
 
 (defn init
   []
