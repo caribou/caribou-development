@@ -70,7 +70,7 @@
     :halo-reset handler/reset-handler})
 
   (def handler
-    (-> (handler/gen-handler)
+    (-> (handler/handler)
         (provide-helpers)
         (wrap-reload)
         (wrap-file (@config/app :asset-dir))
