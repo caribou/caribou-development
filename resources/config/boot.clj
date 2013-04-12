@@ -24,7 +24,7 @@
    :fields-ns      "skel.fields"
    :migrations-dir "app/migrations"
    :api-public     "public"
-   :controllers  {:ns "skel.controllers"}})
+   :controller  {:namespace "skel.controllers" :reload true}})
 
 (defn submerge
   [a b]

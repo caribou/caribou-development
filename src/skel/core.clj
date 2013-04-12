@@ -35,15 +35,16 @@
 
 (defn reload-pages
   []
-  (pages/create-page-routes
-   (model/arrange-tree
-    (model/db
-     #(model/gather :page {:include {:siphons {}}}))))
+  (pages/add-page-routes
+   (pages/all-pages)
+   (-> @config/app :controller :namespace))
+
   (pages/add-page-routes
    admin-routes/admin-routes
    'caribou.admin.controllers
    "/_admin"
    admin-core/admin-wrapper)
+
   (pages/add-page-routes
    api-routes/api-routes
    'caribou.api.controllers
