@@ -8,6 +8,7 @@
   :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"]
   :source-paths ["src" "../src"]
   :resource-paths ["resources/" "../resources/"]            
+  :migration-namespace skel.migrations
   :ring {:handler skel.core/handler
          :servlet-name "caribou-development-frontend"
          :init skel.core/init
