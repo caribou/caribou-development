@@ -1,4 +1,4 @@
-(defproject antler/caribou-development "0.9.2"
+(defproject antler/caribou-development "0.9.6"
   :description
   "caribou development: The prototypical caribou project"
 

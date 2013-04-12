@@ -6,7 +6,7 @@
                  [swank-clojure "1.4.2"]]
   :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"]
   :source-paths ["src" "../src"]
-  :resource-paths ["resources/" "../resources/"]            
+  :resource-paths ["resources/" "../resources/"]
   :ring {:handler skel.core/handler
          :servlet-name "caribou-development-frontend"
          :init skel.core/init

@@ -5,9 +5,8 @@
  :database {:classname    "org.h2.Driver"
             :subprotocol  "h2"
             :host         "localhost"
-            :subname		  "file:/tmp/caribou_development"
+            :subname      "file:/tmp/caribou_development"
             :user         "h2"
             :password     ""}
- :reload-templates :always
- :controller {:namespace "skel.controllers" :reload :always}}
-
+ :controller {:namespace  "skel.controllers" :reload true}
+ :cache-templates :never}
