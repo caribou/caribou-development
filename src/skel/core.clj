@@ -72,13 +72,14 @@
   (def handler
     (-> (handler/handler)
         (provide-helpers)
+        (middleware/wrap-request-diagnostics)
         (wrap-reload)
         (wrap-file (@config/app :asset-dir))
         (wrap-resource (@config/app :public-dir))
         (wrap-file-info)
         (wrap-head)
         (lichen/wrap-lichen (@config/app :asset-dir))
-        (middleware/wrap-servlet-path-info)
+        ;; (middleware/wrap-servlet-path-info)
         (middleware/wrap-xhr-request)
         (request/wrap-request-map)
         (wrap-json-params)
@@ -90,5 +91,5 @@
         (wrap-content-type)
         (wrap-session)
         (wrap-cookies)))
-
-  (swank/start-server :host "127.0.0.1" :port 4010))
+  )
+  ;; (swank/start-server :host "127.0.0.1" :port 4010))

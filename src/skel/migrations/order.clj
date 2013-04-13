@@ -1,3 +1,3 @@
-(ns $project$.migrations.order)
+(ns skel.migrations.order)
 
 (def order [ "default" ])

@@ -1,4 +1,4 @@
-(ns $project$.migrations.default
+(ns skel.migrations.default
   (:require [caribou.model :as model]))
 
 (defn migrate
