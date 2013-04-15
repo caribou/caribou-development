@@ -9,17 +9,11 @@
 
     <style>
       body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
 
-    <link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
+    <link href="/css/skel.css" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="ico/favicon.ico">
   </head>
 
@@ -28,14 +22,11 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">my-test</a>
           <div class="nav-collapse">
             <ul class="nav">
+              <li>
+                <a class="brand" href="#">my-test</a>
+              </li>
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
@@ -46,62 +37,84 @@
     </div>
 
     <div class="container">
+      <div class="grid-block">
+        <div class="col-6">
+          &nbsp;
+          <span aria-hidden="true" class="icon-sil-caribou"></span>
+          <span aria-hidden="true" class="icon-sil-caribou flip"></span>
+        </div>
+        <div class="col-6">
+          <h1>Get {{verbed}}</h1>
+          <p>
+            Caribou provides a fully functioning site immediately, with selectively chosen conventions.</p> 
+          <p>
+            But the beauty is that when you want to expand and alter this basic setup, nothing gets in your way.</p> 
+          <p>
+            All the tools are there, but nothing is imposed upon you.</p>
+          <p>
+            Build exactly what needs to be built with robust and flexible building blocks.
+          </p>
+          <h1>Visit the Admin</h1>
+          <p>
+            Caribou comes with an admin for managing not only your content, routing, users and permissions, but also the Models which define what attributes and relationships your content has.</p>
+          <p>
+            You can find it here: <a href="/_admin/login">caribou admin</a> (user:pass caribou:caribou)
+          </p>
 
-      <h1>Get {{verbed}}</h1>
-      <p>
-        Caribou provides a fully functioning site immediately, with selectively chosen conventions.<br />  
-        But the beauty is that when you want to expand and alter this basic setup, nothing gets in your way.<br />  
-        All the tools are there, but nothing is imposed upon you.<br />  
-        Build exactly what needs to be built with robust and flexible building blocks.
-      </p>
+          <h1>Create some Pages</h1>
+          <p>
+            Pages link the routing structure of the site to the controllers and templates that render them.</p>
+          <p>
+            Controllers are written in <a href="http://clojure.org">Clojure</a>.</p>
+          <p>
+            Templates by convention use <a href="http://github.com/antler/antlers">Antlers</a> (which we developed out of a mustache base directly from the needs of several projects)</p>
+          <p>
+            But you can swap it out with whatever you want!
+          </p>
 
-      <h1>Visit the Admin</h1>
-      <p>
-        Caribou comes with an admin for managing not only your content, routing, users and permissions,<br />
-        but also the Models which define what attributes and relationships your content has.<br /> 
-        You can find it here: <a href="/_admin/login">caribou admin</a> (user:pass caribou:caribou)
-      </p>
+          <h1>Create some Models</h1>
+          <p>
+            If all you need is to render some static templates, you're done.</p>
+          <p>
+            But most likely there is data.  </p>
+          <p>
+            What does your site keep track of?  People?  Projects?  Stories?  Videos?</p>
+          <p>
+            In the admin you can build models of your data and create associations between models.</p>
+          <p>
+            This way the organization of your data reflects real world relationships, and can adapt to needs as they change.</p>
+          <p>
+          </p>
 
-      <h1>Create some Pages</h1>
-      <p>
-        Pages link the routing structure of the site to the controllers and templates that render them.<br />
-        Controllers are written in <a href="http://clojure.org">Clojure</a>.<br /> 
-        Templates by convention use <a href="http://github.com/antler/antlers">Antlers</a> (which we developed out of a mustache base directly from the needs of several projects)<br /> 
-        But you can swap it out with whatever you want!
-      </p>
+          <h1>Add Content</h1>
+          <p>
+            With your models in place, create some things!</p>
+          <p>
+            Did you make a Person model with a name and an address and a mugshot?</p>
+          <p>
+            Add a couple in the admin!
+          </p>
 
-      <h1>Create some Models</h1>
-      <p>
-        If all you need is to render some static templates, you're done.<br />  
-        But most likely there is data.  <br />
-        What does your site keep track of?  People?  Projects?  Stories?  Videos?<br />
-        In the admin you can build models of your data and create associations between models.<br />
-        This way the organization of your data reflects real world relationships, and can adapt to needs as they change.<br />
-      </p>
+          <h1>Visit the API</h1>
+          <p>
+            Now that you've made some models and content, you can access it all directly from the built in API: <a href="/_api/model">built in API</a>:</p>
+          <p>
+            The scheme is simple:  
+            <ul>
+              <li>/_api/:model shows all instances of a given model.</li>
+              <li>/_api/:model/:id shows a particular instance.</li>
+              <li>/_api/:model/:id?include=:association gathers all content associated through :association.</li>
+            </ul>
+            For example: <a href="/_api/model?include=fields.link&order=id">/_api/model?include=fields.link&order=id</a>
+          </p>
 
-      <h1>Add Content</h1>
-      <p>
-        With your models in place, create some things!<br />
-        Did you make a Person model with a name and an address and a mugshot?<br />
-        Add a couple in the admin!
-      </p>
+          <h1>Want More?</h1>
+          <p>Check out the <a href="http://antler.github.com/caribou" target="_blank">Docs</a></p>
+        </div>
+      </div>
+    </div>
 
-      <h1>Visit the API</h1>
-      <p>
-        Now that you've made some models and content, you can access it all directly from the built in API: <a href="/_api/model">built in API</a>:<br />
-        The scheme is simple:  
-        <ul>
-          <li>/_api/:model shows all instances of a given model.</li>
-          <li>/_api/:model/:id shows a particular instance.</li>
-          <li>/_api/:model/:id?include=:association gathers all content associated through :association.</li>
-        </ul>
-        For example: <a href="/_api/model?include=fields.link&order=id">/_api/model?include=fields.link&order=id</a>
-      </p>
-
-      <h1>Want More?</h1>
-      <p>Check out the <a href="http://antler.github.com/caribou" target="_blank">Docs</a></p>
-    </div> 
-
+    <script type="text/javascript" src="/js/skel.js"></script>
   </body>
 </html>
 

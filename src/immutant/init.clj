@@ -5,6 +5,7 @@
             [skel.core :as core]))
 
 (core/init)
+;; (swank/start-server :host "127.0.0.1" :port 4010)
 (web/start "/" #'core/handler)
 ; (web/start "/foo" a-different-ring-handler)
 

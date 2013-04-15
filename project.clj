@@ -9,6 +9,7 @@
   :source-paths ["src" "../src"]
   :resource-paths ["resources/" "../resources/"]            
   :migration-namespace skel.migrations
+  :immutant {:context-path "/"}
   :ring {:handler skel.core/handler
          :servlet-name "caribou-development-frontend"
          :init skel.core/init
