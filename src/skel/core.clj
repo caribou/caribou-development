@@ -78,7 +78,8 @@
         (wrap-file-info)
         (wrap-head)
         (lichen/wrap-lichen (@config/app :asset-dir))
-        (middleware/wrap-servlet-path-info)
+        (middleware/wrap-request-diagnostics)
+        ;; (middleware/wrap-servlet-path-info)
         (middleware/wrap-xhr-request)
         (request/wrap-request-map)
         (wrap-json-params)
@@ -89,6 +90,4 @@
         (db/wrap-db @config/db)
         (wrap-content-type)
         (wrap-session)
-        (wrap-cookies)))
-
-  (swank/start-server :host "127.0.0.1" :port 4010))
+        (wrap-cookies))))
