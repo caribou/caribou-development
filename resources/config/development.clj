@@ -5,10 +5,8 @@
  :database {:classname    "org.h2.Driver"
             :subprotocol  "h2"
             :host         "localhost"
-            ;; HACK HACK HACK!!!
-            :subname		  "file:/tmp/caribou_development"
+            :subname      "file:/tmp/caribou_development"
             :user         "h2"
             :password     ""}
- :controller {:namespace "skel.controllers" :reload :always}}
+ :controller {:namespace "skel.controllers" :reload :always}
  :cache-templates :never}
-

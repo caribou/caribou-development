@@ -4,4 +4,4 @@
 
 (defn home
   [request]
-  (render request))
+  (render (assoc request :verbed "Started")))

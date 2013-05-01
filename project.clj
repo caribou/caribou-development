@@ -1,15 +1,16 @@
-(defproject antler/caribou-development "0.9.6"
-  :description
-  "caribou development: The prototypical caribou project"
-
-  :dependencies
-  [[org.clojure/clojure "1.4.0"]
-   [antler/caribou-core "0.9.9"]]
-
-  :migration-namespace "skel.migrations"
-
-  :sub
-   ["api"
-    "site"]
-
-  :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"])
+(defproject caribou-devsite "0.10.2"
+  :description "The page routing ring handler for caribou"
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                 [antler/caribou-frontend "0.10.0"]
+                 [antler/caribou-admin "0.10.2"]
+                 [antler/caribou-api "0.10.0"]
+                 [swank-clojure "1.4.2"]]
+  :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"]
+  :source-paths ["src" "../src"]
+  :resource-paths ["resources/" "../resources/"]
+  :migration-namespace skel.migrations
+  :immutant {:context-path "/"}
+  :ring {:handler skel.core/handler
+         :servlet-name "caribou-development-frontend"
+         :init skel.core/init
+         :port 33333})
