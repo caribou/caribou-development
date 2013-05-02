@@ -28,14 +28,14 @@
              [halo :as halo]
              [middleware :as middleware]
              [request :as request]
-             [helpers :as helpers]]
+             [helpers :as helpers]
+             [handler :as handler]]
             [caribou.admin
              [routes :as admin-routes]
              [core :as admin-core]]
             [caribou.api
              [routes :as api-routes]
-             [core :as api-core]
-             [handler :as handler]]))
+             [core :as api-core]]))
 
 (declare handler)
 
@@ -94,4 +94,6 @@
         (db/wrap-db @config/db)
         (wrap-content-type)
         (wrap-session)
-        (wrap-cookies))))
+        (wrap-cookies)))
+  (when-not (= :production (config/environment))
+    (swank/start-server :host "127.0.0.1" :port 4010)))
