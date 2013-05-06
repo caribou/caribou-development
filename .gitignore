@@ -1,3 +1,5 @@
+/caribou-index
+/app/assets
 /checkouts
 /site/checkouts
 /api/checkouts
@@ -8,3 +10,4 @@ caribou_development.h2.db
 /site/target
 /target
 /clucy-index
+.lein-repl-history
