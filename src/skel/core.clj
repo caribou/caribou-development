@@ -66,7 +66,7 @@
     (caribou/with-caribou config
       (reload-pages)
       (def handler
-        (-> (handler/handler #'reload-pages)
+        (-> (handler/handler reload-pages)
             (provide-helpers)
             (wrap-reload)
             (wrap-file (config/draw :assets :dir))
