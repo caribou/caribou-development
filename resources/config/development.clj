@@ -8,8 +8,7 @@
             :path         "/tmp/"
             :database     "caribou_development"
             :host         "localhost"
-            :subname      "file:/tmp/caribou_development"
             :user         "h2"
             :password     ""}
- :controller {:namespace  "skel.controllers" :reload true}
+ :controller {:namespace "skel.controllers" :reload :always}
  :cache-templates :never}

@@ -1,3 +1,3 @@
 (ns skel.migrations.order)
 
-(def order [ "default" ])
+(def order [ "default" "admin"])
