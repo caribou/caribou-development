@@ -86,16 +86,3 @@
             (handler/wrap-caribou config)
             (wrap-session)
             (wrap-cookies))))))
-          
-  ;; (config/configure (app-config/get-config))
-  ;; (model/init)
-  ;; (i18n/init)
-  ;; (template/init)
-  ;; (reload-pages)
-  ;; (halo/init
-  ;;  {:reload-pages reload-pages
-  ;;   :halo-reset handler/reset-handler})
-
-  ;; (def handler
-  ;;   (-> (handler/handler)
-
