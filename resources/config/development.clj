@@ -12,4 +12,5 @@
             :user         "h2"
             :password     ""}
  :controller {:namespace  "skel.controllers" :reload true}
+ :nrepl {:port 44444}
  :cache-templates :never}

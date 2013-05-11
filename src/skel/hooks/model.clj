@@ -1,11 +1,9 @@
 (ns skel.hooks.model
-    (:require [caribou.model :as model]))
+  (:require [caribou.hooks :as hooks]))
 
-;; a model hook recieves a map as its sole arg, that map contains keys that
-;; are partially specific to its lifecycle position
-
-;; generally, a hook should return a potentially modified version of the arg it
-;; recieves
+;; a model hook receives a map 'env' as its sole arg and returns that map,
+;; potentially modified.
+;; The env map has keys that contain information about the operation underway.
 
 ;; :content - the thing hooked
 ;; :model - the relevant model
@@ -17,32 +15,35 @@
 ;; :original - for update hooks, the object before the operation in question
 
 ;; creation hooks in order called
-:before_save
-:before_create
-:after_create
-:after_save
+:before-save
+:before-create
+:after-create
+:after-save
 
 ;; update hooks in order called
-:before_save
-:before_update
-:after_update
-:after_save
+:before-save
+:before-update
+:after-update
+:after-save
 
 ;; destroy hooks in order called
-:before_destroy
-:after_destroy
+:before-destroy
+:after-destroy
 
-(model/add-hook :model :before_destroy
-                ;; the third argument is a unique key, by calling add-hook
-                ;; again with a duplicate key, you can replace that hook, by
-                ;; providing a unique key you can add an additional hook
-                :reinitialize
-                (fn [env]
-                  (println "this hook never runs")
-                  env))
+(defn add-hooks
+  []
+  (hooks/add-hook
+   :model :before-destroy
+   ;; the third argument is a unique key, by calling add-hook
+   ;; again with a duplicate key, you can replace that hook, by
+   ;; providing a unique key you can add an additional hook
+   :reinitialize
+   (fn [env]
+     (println "this hook never runs")
+     env))
 
-(model/add-hook :model :before_destroy :reinitialize ; replacing the above hook
-                (fn [env]
-                  (println (:model env) "before_destroy hook, triggered by the"
-                           (:op env) "operation")
-                  env))
+  (hooks/add-hook
+   :model :before-destroy :reinitialize ; replacing the above hook
+   (fn [env]
+     (println "a moment of reflection for our departing model --")
+     env)))
