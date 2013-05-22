@@ -4,9 +4,13 @@
                      ]}
  :database {:classname    "org.h2.Driver"
             :subprotocol  "h2"
+            :protocol     "file"
+            :path         "/tmp/"
+            :database     "caribou_development"
             :host         "localhost"
             :subname      "file:/tmp/caribou_development"
             :user         "h2"
             :password     ""}
  :controller {:namespace "skel.controllers" :reload :always}
+ :nrepl {:port 44444}
  :cache-templates :never}
