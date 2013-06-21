@@ -5,6 +5,7 @@
 /api/checkouts
 /admin/checkouts
 caribou_development.h2.db
+caribou_development.trace.db
 /admin/target
 /api/target
 /site/target

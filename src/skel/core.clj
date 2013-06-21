@@ -93,6 +93,6 @@
 ;; vvvvvvvvvv
 (defn -main [& [port]]
   (init)
-  (let [port (Integer. (or port (System/getenv "PORT")))]
+  (let [port (Integer. (or port (System/getenv "PORT") 33333))]
     (jetty/run-jetty #'handler {:port port})))
 

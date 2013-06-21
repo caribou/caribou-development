@@ -14,6 +14,7 @@
   :migration-namespace skel.migrations
   :immutant {:context-path "/"}
   :min-lein-version "2.0.0"
+  :main skel.core
   :ring {:handler skel.core/handler
          :servlet-name "caribou-development-frontend"
          :init skel.core/init
