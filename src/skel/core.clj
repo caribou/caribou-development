@@ -88,8 +88,6 @@
             (handler/wrap-caribou config)
             (wrap-session)
             (wrap-cookies))))))
-
-
 ;; ^^^^^^^^^^
 ;; for heroku
 ;; vvvvvvvvvv
@@ -97,3 +95,4 @@
   (init)
   (let [port (Integer. (or port (System/getenv "PORT")))]
     (jetty/run-jetty #'handler {:port port})))
+
