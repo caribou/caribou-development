@@ -10,4 +10,5 @@ caribou_development.h2.db
 /site/target
 /target
 /clucy-index
+pom.xml
 .lein-repl-history

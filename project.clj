@@ -6,6 +6,7 @@
                  [antler/caribou-frontend "0.11.24"]
                  [antler/caribou-admin "0.11.30"]
                  [antler/caribou-api "0.11.20"]
+                 [org.clojure/tools.nrepl "0.2.3"]
                  [swank-clojure "1.4.2"]]
   :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"]
   :source-paths ["src" "../src"]
