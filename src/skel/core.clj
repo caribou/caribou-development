@@ -88,6 +88,7 @@
             (handler/wrap-caribou config)
             (wrap-session)
             (wrap-cookies))))))
+
 ;; ^^^^^^^^^^
 ;; for heroku
 ;; vvvvvvvvvv
