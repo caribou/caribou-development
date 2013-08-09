@@ -28,6 +28,7 @@
             [caribou.app.middleware :as middleware]
             [caribou.app.request :as request]
             [caribou.app.helpers :as helpers]
+            [caribou.app.cljs :as cljs]
             [caribou.admin.routes :as admin-routes]
             [caribou.admin.core :as admin-core]
             [caribou.api.routes :as api-routes]
@@ -85,6 +86,7 @@
             (wrap-nested-params)
             (wrap-params)
             (wrap-content-type)
+            (cljs/wrap-cljs)
             (handler/wrap-caribou config)
             (wrap-session)
             (wrap-cookies))))))

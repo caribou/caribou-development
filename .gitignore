@@ -11,5 +11,6 @@ caribou_development.trace.db
 /site/target
 /target
 /clucy-index
+/resources/public/js/out
 pom.xml
 .lein-repl-history

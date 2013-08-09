@@ -13,4 +13,5 @@
             :password     ""}
  :controller {:namespace "skel.controllers" :reload :always}
  :nrepl {:port 44444}
+ :cljs {:reload true}
  :cache-templates :never}
