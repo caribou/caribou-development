@@ -1,7 +1,9 @@
 (ns skel.controllers.home
-  (:use caribou.app.controller)
-  (:require [caribou.model :as model]))
+  (:require [caribou.model :as model]
+            [caribou.app.controller :as controller]))
 
 (defn home
   [request]
-  (render (assoc request :verbed "Started")))
+  (controller/render 
+   (assoc request 
+     :verbed "Started")))
