@@ -1,4 +1,4 @@
-(ns hello)
+(ns skel)
 
 (defn log
   [s]
@@ -53,3 +53,9 @@
     (let [text (.-data text-node)
           transformed (f text)]
       (set! (.-data text-node) transformed))))
+
+(defn remove-vowels-from-dom
+  []
+  (walk-dom 
+   text-node? 
+   (replace-text remove-vowels)))

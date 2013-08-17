@@ -9,8 +9,8 @@
                  [org.clojure/tools.nrepl "0.2.3"]]
   :dev-dependencies [[lein-ring "0.8.2"]]
   :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"]
-  :source-paths ["src" "../src"]
-  :resource-paths ["resources/" "../resources/"]
+  :source-paths ["src"]
+  :resource-paths ["resources/"]
   :migration-namespace skel.migrations
   :immutant {:context-path "/"}
   :min-lein-version "2.0.0"
