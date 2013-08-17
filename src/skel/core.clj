@@ -34,7 +34,8 @@
             [caribou.api.routes :as api-routes]
             [caribou.api.core :as api-core]
             [caribou.app.handler :as handler]
-            [skel.boot :as boot]))
+            [skel.boot :as boot]
+            [skel.routes :as routes]))
 
 (declare handler)
 
@@ -59,7 +60,7 @@
    api-core/api-wrapper)
 
   (pages/add-page-routes
-   (pages/all-pages)
+   (routes/gather-pages)
    (config/draw :controller :namespace)))
 
 (defn init
