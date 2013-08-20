@@ -5,7 +5,9 @@
   [["" :home []]])
 
 (def pages
-  {:home {:GET {:controller 'home :action 'home :template "home.html"}}})
+  {:home {:GET {:controller 'home 
+                :action 'home 
+                :template "home.html"}}})
 
 (defn page-tree
   []
