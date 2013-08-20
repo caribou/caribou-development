@@ -1,4 +1,4 @@
-(defproject caribou-devsite "0.12.0"
+(defproject caribou-development "0.12.0"
   :description "The page routing ring handler for caribou"
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [ring/ring-jetty-adapter "1.1.8"]
