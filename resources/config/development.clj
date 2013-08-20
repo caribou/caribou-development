@@ -2,6 +2,7 @@
                      ;; {:type :remote :host "beast.local" :level :debug}
                      ;; {:type :file :file "caribou-logging.out" :level :debug}
                      ]}
+ :app {:use-database true}
  :database {:classname    "org.h2.Driver"
             :subprotocol  "h2"
             :protocol     "file"

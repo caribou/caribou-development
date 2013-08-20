@@ -3,7 +3,7 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [ring/ring-jetty-adapter "1.1.8"]
                  [org.immutant/immutant "1.0.0"]
-                 [antler/caribou-frontend "0.12.0"]
+                 [antler/caribou-frontend "0.12.1"]
                  [antler/caribou-admin "0.12.0"]
                  [antler/caribou-api "0.12.0"]
                  [org.clojure/tools.nrepl "0.2.3"]]
