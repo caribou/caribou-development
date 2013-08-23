@@ -9,7 +9,7 @@
                  [org.clojure/tools.nrepl "0.2.3"]]
   :plugins [[lein-ring "0.8.6"]
             [antler/lein-caribou "2.4.4"]]
-  :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"]
+  :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n" "-Xmx2g"]
   :source-paths ["src"]
   :resource-paths ["resources/"]
   :min-lein-version "2.0.0"
