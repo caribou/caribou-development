@@ -15,9 +15,13 @@
          :credentials nil}
    :cljs {:root "resources/cljs"
           :reload true
-          :options {:output-dir "resources/public/js/out"
-                    :pretty-print true}}
-   :controller {:namespace "{project}.controllers"
+          :options {:output-to "resources/public/js/app/skel.js"
+                    :output-dir "resources/public/js/app/out"
+                    :pretty-print true}
+          :brepl {:listen true
+                  :port 44994
+                  :path "repl"}}
+   :controller {:namespace "skel.controllers"
                 :reload true}
    :database {:classname    "org.h2.Driver"
               :subprotocol  "h2"
@@ -28,11 +32,11 @@
               :user         "h2"
               :password     ""}
    :error {:show-stacktrace false}
-   :field {:namespace "{project}.fields"
+   :field {:namespace "skel.fields"
            :slug-transform [[#"['\"]+" ""]
                             [#"[_ \\/?%:#^\[\]<>@!|$&*+;,.()]+" "-"]
                             [#"^-+|-+$" ""]]}
-   :hooks {:namespace "{project}.hooks"}
+   :hooks {:namespace "skel.hooks"}
    :index {:path "caribou-index"
            :default-limit 1000}
    :logging {:loggers [{:type :stdout :level :debug}]}

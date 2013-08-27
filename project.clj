@@ -1,14 +1,15 @@
-(defproject caribou-development "0.12.4"
+(defproject caribou-development "0.12.6"
   :description "The page routing ring handler for caribou"
-  :dependencies [[org.clojure/clojure "1.4.0"]
+  :dependencies [[org.clojure/clojure "1.5.1"]
                  [ring/ring-jetty-adapter "1.1.8"]
                  [org.immutant/immutant "1.0.0"]
-                 [antler/caribou-frontend "0.12.4"]
-                 [antler/caribou-admin "0.12.4"]
-                 [antler/caribou-api "0.12.4"]
+                 [antler/caribou-frontend "0.12.7"]
+                 [antler/caribou-admin "0.12.6"]
+                 [antler/caribou-api "0.12.6"]
                  [org.clojure/tools.nrepl "0.2.3"]]
   :plugins [[lein-ring "0.8.6"]
-            [antler/lein-caribou "2.4.4"]]
+            [antler/lein-caribou "2.4.4"]
+            [lein-cljsbuild "0.3.2"]]
   :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n" "-Xmx2g"]
   :source-paths ["src"]
   :resource-paths ["resources/"]
@@ -21,4 +22,10 @@
          :auto-reload? false
          :servlet-name "caribou-development-frontend"}
   :immutant {:context-path "/"
-             :init skel.immutant/init})
+             :init skel.immutant/init}
+  :cljsbuild {:repl-listen-port 44994
+              :builds
+              [{:source-paths ["resources/cljs"]
+                :compiler {:output-to "resources/public/js/app/skel.js"
+                           :optimizations :whitespace
+                           :pretty-print true}}]})

@@ -69,6 +69,7 @@
     (caribou/with-caribou config
       (reload-pages)
       (repl/repl-init)
+      (cljs/brepl-init)
       (def handler
         (-> (handler/handler reload-pages)
             (provide-helpers)
