@@ -90,7 +90,7 @@
             (wrap-content-type)
             (cljs/wrap-cljs)
             (handler/wrap-caribou config)
-            (wrap-session)
+            (wrap-session {:store (cookie-store {:key "REPLACEMEWITHAREALSESSIONCOOKIE!"})})
             (wrap-cookies))))))
 
 ;; ^^^^^^^^^^

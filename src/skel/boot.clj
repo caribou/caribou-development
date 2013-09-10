@@ -14,11 +14,11 @@
    :aws {:bucket nil
          :credentials nil}
    :cljs {:root "resources/cljs"
-          :reload true
+          :reload false
           :options {:output-to "resources/public/js/app/skel.js"
                     :output-dir "resources/public/js/app/out"
                     :pretty-print true}
-          :brepl {:listen true
+          :brepl {:listen false
                   :port 44994
                   :path "repl"}}
    :controller {:namespace "skel.controllers"

@@ -1,13 +1,17 @@
-{:database {:classname    "org.postgresql.Driver"
-            :subprotocol  "postgresql"
-            :host         "localhost"
+{:logging {:loggers [{:type :stdout :level :debug}
+                     ;; {:type :remote :host "beast.local" :level :debug}
+                     ;; {:type :file :file "caribou-logging.out" :level :debug}
+                     ]}
+ :app {:use-database true}
+ :database {:classname    "org.h2.Driver"
+            :subprotocol  "h2"
+            :protocol     "file"
+            :path         "./"
             :database     "caribou_test"
-            :user         "postgres"
-            :password     "postgres"}
- :template-dir   "site/resources/templates" 
- :controller-ns  "skel.controllers"
- :public-dir     "site/resources/public"
- :api-public     "api/public"
- :asset-dir      "assets"
- :halo-key    "replace-with-halo-key"
- :halo-host   "http://localhost:33333"}
+            :host         "localhost"
+            :subname      "file:caribou_test"
+            :user         "h2"
+            :password     ""}
+ :controller {:namespace "skel.controllers" :reload :always}
+ :nrepl {:port 44444}
+ :cache-templates :never}
