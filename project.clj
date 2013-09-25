@@ -1,7 +1,7 @@
 (defproject caribou-development "0.12.14"
   :description "The page routing ring handler for caribou"
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [ring/ring-jetty-adapter "1.1.8"]
+                 [ring/ring-jetty-adapter "1.2.0"]
                  [org.immutant/immutant "1.0.0"]
                  [caribou/caribou-frontend "0.12.14"]
                  [caribou/caribou-admin "0.12.16"]
