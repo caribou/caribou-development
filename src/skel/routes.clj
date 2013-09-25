@@ -2,16 +2,12 @@
   (:require [caribou.app.pages :as pages]))
 
 (def routes
-  [["/" :home 
-    [["/yellow" :yellow []]]]])
+  [["/" :home []]])
 
 (def pages
   {:home {:GET {:controller 'home 
                 :action 'home 
-                :template "home.html"}}
-   :yellow {:GET {:controller 'home
-                  :action 'yellow
-                  :template "yellow.html"}}})
+                :template "home.html"}}})
 
 (defn page-tree
   []
