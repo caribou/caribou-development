@@ -16,6 +16,6 @@
 (defn gather-pages
   []
   (let [db-pages (try 
-                   (pages/all-pages) 
+                   (pages/all-pages)
                    (catch Exception e nil))]
     (pages/merge-page-trees db-pages (page-tree))))
