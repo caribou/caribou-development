@@ -9,7 +9,7 @@
   :plugins [[lein-ring "0.8.6"]
             [caribou/lein-caribou "2.4.10"]
             [lein-cljsbuild "0.3.2"]]
-  :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n" "-Xmx2g"]
+  :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n" "-Xmx2g" "-XX:MaxPermSize=128m"]
   :source-paths ["src"]
   :resource-paths ["resources/"]
   :min-lein-version "2.0.0"
