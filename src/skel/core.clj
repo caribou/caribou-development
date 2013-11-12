@@ -13,7 +13,7 @@
         [ring.middleware.session.cookie :only (cookie-store)]
         [ring.middleware.cookies :only (wrap-cookies)]
         [ring.middleware.content-type :only (wrap-content-type)])
-  (:require [ring.adapter.jetty :as jetty]
+  (:require [org.httpkit.server :as server]
             [lichen.core :as lichen]
             [caribou.config :as config]
             [caribou.db :as db]
@@ -99,5 +99,4 @@
 (defn -main [& [port]]
   (init)
   (let [port (Integer. (or port (System/getenv "PORT") 33333))]
-    (jetty/run-jetty #'handler {:port port})))
-
+    (server/run-server #'handler {:port port})))

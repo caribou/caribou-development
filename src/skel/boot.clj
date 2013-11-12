@@ -31,7 +31,8 @@
               :database     "taiga_development"
               :user         "h2"
               :password     ""}
-   :error {:show-stacktrace false}
+   :error {:show-stacktrace false
+           :catch-exceptions true}
    :field {:namespace "skel.fields"
            :slug-transform [[#"['\"]+" ""]
                             [#"[_ \\/?%:#^\[\]<>@!|$&*+;,.()]+" "-"]
