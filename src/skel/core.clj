@@ -1,3 +1,5 @@
+(alter-var-root #'*compiler-options* assoc :disable-locals-clearing true)
+
 (ns skel.core
   (:use [ring.middleware.json :only (wrap-json-params)]
         [ring.middleware.multipart-params :only (wrap-multipart-params)]
@@ -26,7 +28,6 @@
             [caribou.app.template :as template]
             [caribou.app.halo :as halo]
             [caribou.app.middleware :as middleware]
-            [caribou.app.request :as request]
             [caribou.app.helpers :as helpers]
             [caribou.app.cljs :as cljs]
             [caribou.admin.routes :as admin-routes]
@@ -81,7 +82,6 @@
             (lichen/wrap-lichen (config/draw :assets :dir))
             (middleware/wrap-servlet-path-info)
             (middleware/wrap-xhr-request)
-            (request/wrap-request-map)
             (wrap-json-params)
             (wrap-multipart-params)
             (wrap-keyword-params)
@@ -90,7 +90,7 @@
             (wrap-content-type)
             (cljs/wrap-cljs)
             (handler/wrap-caribou config)
-            (wrap-session {:store (cookie-store {:key "REPLACEMEWITHAREALSESSIONCOOKIE!"})})
+            (wrap-session {:store (cookie-store {:key "REPLACEMEWITHKEY"})})
             (wrap-cookies))))))
 
 ;; ^^^^^^^^^^

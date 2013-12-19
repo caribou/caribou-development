@@ -8,4 +8,5 @@
             :database     "caribou_production"
             :user         "postgres"
             :password     "postgres"}
- :asset-dir      "assets"}
+ :controller {:namespace "skel.controllers" :reload :never}
+ :cache-templates :always}

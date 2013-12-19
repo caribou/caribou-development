@@ -3,6 +3,11 @@
                      ;; {:type :file :file "caribou-logging.out" :level :debug}
                      ]}
  :app {:use-database true}
+ :cljs {:root "resources/cljs"
+        :reload false
+        :options {:output-to "resources/public/js/app/skel.js"
+                  :optimizations :whitespace
+                  :pretty-print true}}
  :database {:classname    "org.h2.Driver"
             :subprotocol  "h2"
             :protocol     "file"

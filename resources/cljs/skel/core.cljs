@@ -1,4 +1,4 @@
-(ns skel
+(ns skel.core
   (:require [skel.connect :as connect]))
 
 (defn log
