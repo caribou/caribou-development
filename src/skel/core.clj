@@ -23,10 +23,8 @@
             [caribou.logger :as log]
             [caribou.repl :as repl]
             [caribou.core :as caribou]
-            [caribou.app.i18n :as i18n]
             [caribou.app.pages :as pages]
             [caribou.app.template :as template]
-            [caribou.app.halo :as halo]
             [caribou.app.middleware :as middleware]
             [caribou.app.helpers :as helpers]
             [caribou.app.cljs :as cljs]
@@ -48,27 +46,32 @@
 
 (defn reload-pages
   []
-  (pages/add-page-routes
-   admin-routes/admin-routes
-   'caribou.admin.controllers
-   "/_admin"
-   admin-core/admin-wrapper)
+  (concat 
+   (pages/convert-pages-to-routes
+    admin-routes/admin-routes
+    'caribou.admin.controllers
+    "/_admin"
+    admin-core/admin-wrapper)
 
-  (pages/add-page-routes
-   api-routes/api-routes
-   'caribou.api.controllers
-   "/_api"
-   api-core/api-wrapper)
+   (pages/convert-pages-to-routes
+    api-routes/api-routes
+    'caribou.api.controllers
+    "/_api"
+    api-core/api-wrapper)
 
-  (pages/add-page-routes
-   (routes/gather-pages)
-   (config/draw :controller :namespace)))
+   (routes/build-routes
+    routes/routes
+    (config/draw :controller :namespace))
+
+   (pages/convert-pages-to-routes
+    (routes/gather-pages)
+    (config/draw :controller :namespace))))
 
 (defn init
   []
   (let [config (boot/boot)]
     (caribou/with-caribou config
-      (reload-pages)
+      (template/init)
       (repl/repl-init)
       (cljs/brepl-init)
       (def handler

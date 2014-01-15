@@ -11,7 +11,3 @@
     (controller/render 
      (assoc request 
        :verbed "Started"))))
-
-(defn yellow
-  [request]
-  (controller/render request))

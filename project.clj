@@ -1,11 +1,11 @@
-(defproject caribou-development "0.13.3"
+(defproject caribou-development "0.13.8"
   :description "The page routing ring handler for caribou"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [http-kit "2.1.12"]
                  [org.immutant/immutant "1.0.2"]
-                 [caribou/caribou-admin "0.13.3"]
-                 [caribou/caribou-api "0.13.3"]
-                 [schmetterling "0.0.2"]
+                 [caribou/caribou-admin "0.13.8"]
+                 [caribou/caribou-api "0.13.8"]
+                 [schmetterling "0.0.5"]
                  [org.clojure/tools.nrepl "0.2.3"]]
   :plugins [[lein-ring "0.8.6"]
             [caribou/lein-caribou "2.13.2"]
