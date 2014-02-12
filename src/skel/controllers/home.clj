@@ -5,9 +5,7 @@
 
 (defn home
   [request]
-  (let [b 1 
-        a 0]
-    ;; (/ b a)
-    (controller/render 
-     (assoc request 
-       :verbed "Started"))))
+  (controller/render 
+   (assoc request 
+     :verbed "Started")))
+

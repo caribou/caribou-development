@@ -1,5 +1,3 @@
-(alter-var-root #'*compiler-options* assoc :disable-locals-clearing true)
-
 (ns skel.core
   (:use [ring.middleware.json :only (wrap-json-params)]
         [ring.middleware.multipart-params :only (wrap-multipart-params)]
@@ -38,11 +36,10 @@
 
 (declare handler)
 
-(defn provide-helpers
-  [handler]
-  (fn [request]
-    (let [request (merge request helpers/helpers)]
-      (handler request))))
+(def additional-helpers
+  {:hello 
+   (fn [x] 
+     (str "Hello " x "!"))})
 
 (defn reload-pages
   []
@@ -76,21 +73,22 @@
       (cljs/brepl-init)
       (def handler
         (-> (handler/handler reload-pages)
-            (provide-helpers)
+            (helpers/wrap-helpers additional-helpers)
             (wrap-reload)
             (wrap-file (config/draw :assets :dir))
             (wrap-resource (config/draw :app :public-dir))
             (wrap-file-info)
+            (middleware/wrap-default-content-type)
+            (wrap-content-type)
             (wrap-head)
             (lichen/wrap-lichen (config/draw :assets :dir))
-            (middleware/wrap-servlet-path-info)
+            (middleware/wrap-path-info)
             (middleware/wrap-xhr-request)
             (wrap-json-params)
             (wrap-multipart-params)
             (wrap-keyword-params)
             (wrap-nested-params)
             (wrap-params)
-            (wrap-content-type)
             (cljs/wrap-cljs)
             (handler/wrap-caribou config)
             (wrap-session {:store (cookie-store {:key "REPLACEMEWITHKEY"})})
