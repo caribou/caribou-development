@@ -32,14 +32,10 @@
             [caribou.api.core :as api-core]
             [caribou.app.handler :as handler]
             [skel.boot :as boot]
-            [skel.routes :as routes]))
+            [skel.routes :as routes]
+            [skel.helpers :as user-helpers]))
 
 (declare handler)
-
-(def additional-helpers
-  {:hello 
-   (fn [x] 
-     (str "Hello " x "!"))})
 
 (defn reload-pages
   []
@@ -73,12 +69,12 @@
       (cljs/brepl-init)
       (def handler
         (-> (handler/handler reload-pages)
-            (helpers/wrap-helpers additional-helpers)
+            (helpers/wrap-helpers user-helpers/additional-helpers)
             (wrap-reload)
             (wrap-file (config/draw :assets :dir))
             (wrap-resource (config/draw :app :public-dir))
             (wrap-file-info)
-            (middleware/wrap-default-content-type)
+            ;; (middleware/wrap-default-content-type)
             (wrap-content-type)
             (wrap-head)
             (lichen/wrap-lichen (config/draw :assets :dir))
