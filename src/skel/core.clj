@@ -1,4 +1,5 @@
 (ns skel.core
+  (:gen-class :main true)
   (:use [ring.middleware.json :only (wrap-json-params)]
         [ring.middleware.multipart-params :only (wrap-multipart-params)]
         [ring.middleware.params :only (wrap-params)]
@@ -96,4 +97,5 @@
 (defn -main [& [port]]
   (init)
   (let [port (Integer. (or port (System/getenv "PORT") 33333))]
-    (server/run-server #'handler {:port port})))
+    (server/run-server #'handler {:port port})
+    (println (format "Caribou running on port %s" port))))

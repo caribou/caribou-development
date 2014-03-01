@@ -1,14 +1,14 @@
-(defproject caribou-development "0.13.10"
+(defproject caribou-development "0.13.14"
   :description "The page routing ring handler for caribou"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [http-kit "2.1.12"]
-                 [caribou/caribou-admin "0.13.10"]
-                 [caribou/caribou-api "0.13.10"]
-                 [schmetterling "0.0.6"]
+                 [caribou/caribou-admin "0.13.14"]
+                 [caribou/caribou-api "0.13.14"]
+                 [schmetterling "0.0.7"]
                  [org.clojure/tools.nrepl "0.2.3"]]
   :plugins [[lein-ring "0.8.6"]
             [caribou/lein-caribou "2.13.2"]
-            [lein-cljsbuild "0.3.3"]]
+            [lein-cljsbuild "1.0.2"]]
   :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n" 
              "-Dclojure.compiler.disable-locals-clearing=true"
              "-Xmx512m" 
@@ -19,6 +19,8 @@
   :min-lein-version "2.0.0"
   :migration-namespace skel.migrations
   :main skel.core
+  :uberjar-name "skel-standalone.jar"
+  :profiles {:uberjar {:aot :all}}
   :ring {:handler skel.core/handler
          :init skel.core/init
          :port 33333
