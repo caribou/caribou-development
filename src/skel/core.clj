@@ -75,7 +75,6 @@
             (wrap-file (config/draw :assets :dir))
             (wrap-resource (config/draw :app :public-dir))
             (wrap-file-info)
-            ;; (middleware/wrap-default-content-type)
             (wrap-content-type)
             (wrap-head)
             (lichen/wrap-lichen (config/draw :assets :dir))

@@ -23,14 +23,12 @@
                   :path "repl"}}
    :controller {:namespace "skel.controllers"
                 :reload true}
-   :database {:classname    "org.h2.Driver"
-              :subprotocol  "h2"
+   :database {:classname    "org.postgresql.Driver"
+              :subprotocol  "postgresql"
               :host         "localhost"
-              :protocol     "file"
-              :path         "/tmp/"
-              :database     "taiga_development"
-              :user         "h2"
-              :password     ""}
+              :database     "skel_production"
+              :user         "postgres_user"
+              :password     "postgres_password"}
    :error {:show-stacktrace false
            :catch-exceptions true}
    :field {:namespace "skel.fields"
@@ -48,7 +46,9 @@
 
 (defn boot
   []
-  (let [default (app-config/default-config)
-        local (config/merge-config default local-config)
-        config (config/config-from-environment local)]
-    (caribou/init config)))
+  (-> (app-config/default-config)
+      (config/merge-config local-config)
+      (config/config-from-environment)
+      (config/merge-db-connection {:connection "DATABASE_URL"})
+      (config/process-config)
+      (caribou/init)))
