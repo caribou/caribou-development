@@ -7,7 +7,7 @@
                  [schmetterling "0.0.8"]
                  [org.clojure/tools.nrepl "0.2.3"]]
   :plugins [[lein-ring "0.8.6"]
-            [caribou/lein-caribou "2.13.4"]
+            [caribou/lein-caribou "2.14.0"]
             [lein-cljsbuild "1.0.2"
              :exclusions [fs]]]
   :jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n" 
