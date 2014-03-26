@@ -5,7 +5,8 @@
                  [caribou/caribou-admin "0.14.0"]
                  [caribou/caribou-api "0.14.0"]
                  [schmetterling "0.0.8"]
-                 [org.clojure/tools.nrepl "0.2.3"]]
+                 [org.clojure/tools.nrepl "0.2.3"]
+                 [caribou/caribou-plugin "0.2.0"]]
   :plugins [[lein-ring "0.8.6"]
             [caribou/lein-caribou "2.14.0"]
             [lein-cljsbuild "1.0.2"
