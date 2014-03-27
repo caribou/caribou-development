@@ -1,7 +1,19 @@
 (ns skel.boot
   (:require [caribou.core :as caribou]
             [caribou.config :as config]
-            [caribou.app.config :as app-config]))
+            [caribou.app.config :as app-config]
+            [caribou.plugin.state :as plug-state]
+            [caribou.plugin.c3p0 :as c3p0-plugin]))
+
+(defn integrate-plugins
+  [config]
+  (let [plugins (plug-state/new)
+        c3p0-plugin (c3p0-plugin/create)
+        plugins (reduce plug-state/register
+                        plugins
+                        [c3p0-plugin])
+        state (plug-state/init plugins config)]
+    state))
 
 (def local-config
   {:app {:use-database true
@@ -46,9 +58,11 @@
 
 (defn boot
   []
-  (-> (app-config/default-config)
-      (config/merge-config local-config)
-      (config/config-from-environment)
-      (config/merge-db-connection {:connection "DATABASE_URL"})
-      (config/process-config)
-      (caribou/init)))
+  (let [config (-> (app-config/default-config)
+                   (config/merge-config local-config)
+                   config/config-from-environment
+                   (config/merge-db-connection {:connection "DATABASE_URL"})
+                   config/process-config
+                   caribou/init)
+        plugged (integrate-plugins config)]
+    (:config plugged)))
